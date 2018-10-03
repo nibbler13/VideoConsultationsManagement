@@ -5,11 +5,12 @@ namespace VideoConsultationsManagement {
 	partial class SmsSystem {
 		public static string SendInvitation(string number, string url, DateTime dateTime) {
 			string subject = "Приглашение на видеоконсультацию";
-			string body = HEADER + number + " В открывшемся окне видеоконсультации введите имя и нажмите 'Войти как гость'. " +
-				" Для подключения к видеоконсультации";
+			string body = HEADER + number + " При установленном приложении TrueConf " +
+				"для подключения к видео консультации";
 			if (!dateTime.Equals(new DateTime()))
 				body += " в " + dateTime.ToShortTimeString() + " " + dateTime.ToShortDateString();
-			body += " пройдите по ссылке: " + url;
+			body += " пройдите по ссылке: " + url + " В открывшемся окне видеоконсультации введите " +
+				"свое имя и нажмите 'Войти как гость'";
 			return SendMailToSmsGate(subject, body);
 		}
 
@@ -20,7 +21,7 @@ namespace VideoConsultationsManagement {
 				return result;
 
 			string subject = "Ссылка для установки приложения TrueConf";
-			string body = HEADER + number + " Необходимо установить мобильное приложение - ";
+			string body = HEADER + number + " Необходимо установить мобильное приложение TrueConf: ";
 			string iosLink = "скачать для Apple iOS (App Store): " + Properties.Settings.Default.linkIos;
 			string androidLink = "скачать для Goolge Android (Google Play): " + Properties.Settings.Default.linkAndroid;
 			
@@ -57,11 +58,11 @@ namespace VideoConsultationsManagement {
 			}
 		}
 		
-		public static string SendReminder(string number, string url, DateTime dateTime) {
-			string subject = "Приглашение на видеоконсультацию";
-			string body = HEADER + number + " Напоминаем Вам, что в " + dateTime.ToShortTimeString() +
-				" начнется видеоконсультация. Для подключения пройдите по ссылке: " + url;
-			return SendMailToSmsGate(subject, body);
-		}
+		//public static string SendReminder(string number, string url, DateTime dateTime) {
+		//	string subject = "Приглашение на видеоконсультацию";
+		//	string body = HEADER + number + " Напоминаем Вам, что в " + dateTime.ToShortTimeString() +
+		//		" начнется видеоконсультация. Для подключения пройдите по ссылке: " + url;
+		//	return SendMailToSmsGate(subject, body);
+		//}
 	}
 }

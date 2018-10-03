@@ -12,7 +12,7 @@ namespace VideoConsultationsManagement.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,7 +25,7 @@ namespace VideoConsultationsManagement.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://play.google.com/store/apps/details?id=com.trueconf.videochat&hl=ru")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://goo.gl/VomGMP")]
         public string linkAndroid {
             get {
                 return ((string)(this["linkAndroid"]));
@@ -37,7 +37,7 @@ namespace VideoConsultationsManagement.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://itunes.apple.com/ru/app/trueconf/id536475636")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://goo.gl/oQEHhk")]
         public string linkIos {
             get {
                 return ((string)(this["linkIos"]));

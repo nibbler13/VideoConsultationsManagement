@@ -67,18 +67,24 @@ namespace VideoConsultationsManagement {
 			return JsonConvert.DeserializeObject<Webinar>(jsonString);
 		}
 
+		public class Webinars {
+			[JsonProperty("list")]
+			public Dictionary<string, Webinar> Dict { get; set; }
+		}
+
 		public async Task<Dictionary<string, Webinar>> GetAllWebinars() {
 			string url = rootUrl + apiGetAllWebinars.Replace("{secret_key}", secretKey);
 			HttpResponseMessage response = await httpClient.GetAsync(url);
 			response.EnsureSuccessStatusCode();
 
-			Dictionary<string, Webinar> webinars;
+			Dictionary<string, Webinar> webinars = new Dictionary<string, Webinar>();
 			string jsonString = await response.Content.ReadAsStringAsync();
-			if (!jsonString.Contains("id")) {
-				webinars = new Dictionary<string, Webinar>();
-			} else {
-				webinars = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, Webinar>>>(jsonString).Values.First();
+			try {
+				webinars = JsonConvert.DeserializeObject<Webinars>(jsonString).Dict;
+			} catch (Exception e) {
+				Console.WriteLine(e.Message + Environment.NewLine + e.StackTrace);
 			}
+
 			return webinars;
 		}
 	}
